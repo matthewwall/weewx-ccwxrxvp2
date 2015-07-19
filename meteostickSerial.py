@@ -18,14 +18,6 @@ def processIstring(string) :
     byte5 = int(fields[7],16)
     byte6 = int(fields[8],16)
     byte7 = int(fields[9],16)
-    print 'I',hex(byte0), \
-	      hex(byte1), \
-	      hex(byte2), \
-	      hex(byte3), \
-	      hex(byte4), \
-	      hex(byte5), \
-	      hex(byte6), \
-	      hex(byte7)
 
 def processBstring(string) :
     fields = string.strip().split()
@@ -107,7 +99,7 @@ while True :
 		    string += data
 	    else :
             	if (data == '\r') :
-		    print 'RX:',string
+		    print string
 		    started = False
 		    if string[0] == 'I' :
 			processIstring(string)
