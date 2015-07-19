@@ -16,10 +16,10 @@ class CommunicationError(Exception):
     pass
 
 def loader(config_dict, engine):
-    return CCWXRXVP2(**config_dict['METEOSTICK'])
+    return WEEWXMETEOSTICK(**config_dict['WEEWXMETEOSTICK'])
 
 def logmsg(dst, msg):
-    syslog.syslog(dst, 'meteostick: %s' % msg)
+    syslog.syslog(dst, 'weewxmeteostick: %s' % msg)
 
 def logdbg(msg):
     logmsg(syslog.LOG_DEBUG, msg)
@@ -52,7 +52,7 @@ class ConnectionThread(threading.Thread):
                 self.mesg = mesg
         return
 
-class METEOSTICK(weewx.drivers.AbstractDevice):
+class WEEWXMETEOSTICK(weewx.drivers.AbstractDevice):
     """weewx driver for the Smartbedded Meteostick."""
 
     def __init__(self, **stn_dict):
