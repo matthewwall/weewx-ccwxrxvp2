@@ -31,8 +31,7 @@ def logerr(msg):
     logmsg(syslog.LOG_ERR, msg)
 
 class ConnectionThread(threading.Thread):
-    """Thread that receives data packets for a specific transmitter ID from
-    the ccwxrx_splitter program."""
+    """Thread that receives serial data packets from the meteostick"""
 
     def __init__(self, group=None, name=None, kwargs=None):
         super(ConnectionThread, self).__init__(group=group, name=name)
