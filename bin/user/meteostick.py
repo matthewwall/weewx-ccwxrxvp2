@@ -21,6 +21,9 @@ class CommunicationError(Exception):
 def loader(config_dict, engine):
     return Meteostick(**config_dict['Meteostick'])
 
+def confeditor_loader():
+    return MeteostickConfEditor()
+
 def logmsg(dst, msg):
     syslog.syslog(dst, 'meteostick: %s' % msg)
 
@@ -210,3 +213,18 @@ class Meteostick(weewx.drivers.AbstractDevice):
         pressure_pa = ((data_packet[1] << 24) + (data_packet[2] << 16) +
                        (data_packet[3] << 8) + (data_packet[4]))
         return pressure_pa * 0.000295333727  # Convert to inHg
+
+
+class MeteostickEditor(weewx.drivers.AbstractConfEditor):
+    @property
+    def default_stanza(self):
+        return """
+[Meteostick]
+    # This section is for Meteostick transceivers
+
+    # How often to query the meteostick, in seconds
+    poll_interval = 2.5
+
+    # The driver to use:
+    driver = user.meteostick
+"""
