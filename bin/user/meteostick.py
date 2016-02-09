@@ -22,7 +22,7 @@ def loader(config_dict, engine):
     return Meteostick(**config_dict['Meteostick'])
 
 def logmsg(dst, msg):
-    syslog.syslog(dst, 'weewxmeteostick: %s' % msg)
+    syslog.syslog(dst, 'meteostick: %s' % msg)
 
 def logdbg(msg):
     logmsg(syslog.LOG_DEBUG, msg)
