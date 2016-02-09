@@ -5,21 +5,21 @@
 from setup import ExtensionInstaller
 
 def loader():
-    return WEEWXMETEOSTICKInstaller()
+    return MeteostickInstaller()
 
-class WEEWXMETEOSTICKInstaller(ExtensionInstaller):
+class MeteostickInstaller(ExtensionInstaller):
     def __init__(self):
-        super(WEEWXMETEOSTICKInstaller, self).__init__(
-            version="1.0",
-            name='weewxmeteostick',
+        super(MeteostickInstaller, self).__init__(
+            version="1.0mw",
+            name='meteostick',
             description='Driver for the Smartbedded Meteostick',
             author="Fergus Duncan",
             author_email="fergus@ziplockk.com",
             config={
                 'Station': {
-                    'station_type': 'WEEWXMETEOSTICK'},
-                'WEEWXMETEOSTICK': {
+                    'station_type': 'Meteostick'},
+                'Meteostick': {
                     'poll_interval': '2.5',
-                    'driver': 'user.weewxmeteostick'}},
-            files=[('bin/user', ['bin/user/weewxmeteostick.py'])]
+                    'driver': 'user.meteostick'}},
+            files=[('bin/user', ['bin/user/meteostick.py'])]
             )
