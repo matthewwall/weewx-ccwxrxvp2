@@ -215,7 +215,7 @@ class Meteostick(weewx.drivers.AbstractDevice):
         return pressure_pa * 0.000295333727  # Convert to inHg
 
 
-class MeteostickEditor(weewx.drivers.AbstractConfEditor):
+class MeteostickConfEditor(weewx.drivers.AbstractConfEditor):
     @property
     def default_stanza(self):
         return """
